@@ -1,0 +1,366 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+body.light-mode {
+    background-color: white;
+    color: black;
+}
+
+body.light-mode header {
+    background: #dddddd;
+}
+
+body.light-mode header h2 {
+    color: black;
+}
+
+body.light-mode .overlay {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+body.light-mode .overlay a {
+    color: #555555;
+}
+
+body.light-mode .overlay a:hover,
+body.light-mode .overlay a:focus {
+    color: #000000;
+}
+
+body.light-mode #about_me,
+body.light-mode .project {
+    background-color: #dddddd;
+    color: black;
+}
+
+header {
+    background: #333333;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+header > h2 {
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+}
+
+.menu-icon {
+    font-size: 33px;
+    cursor: pointer;
+    color: white;
+    z-index: 100;
+}
+
+body.light-mode .menu-icon {
+    color: black;
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay ul {
+    list-style-type: none;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+.active-page {
+    color: #ff6600 !important;
+    font-weight: bold;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay a {
+        font-size: 20px;
+    }
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+body.light-mode .announcement {
+    background-color: #ddd;
+}
+
+body.light-mode .timer {
+    color: black;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-height: calc(100vh - 180px);
+}
+
+#about_me {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 35px;
+    padding: 20px;
+    background-color: #333333;
+    border-radius: 10px;
+    color: white;
+    width: 100%;
+    max-width: 1200px;
+}
+
+#about_me h1 {
+    font-size: 45px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#about_me p {
+    font-size: 30px;
+    text-align: justify;
+    margin: 20px;
+}
+
+#future_projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 35px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.project {
+    background-color: #333333;
+    padding: 25px;
+    border-radius: 10px;
+    margin: 20px;
+    text-align: center;
+    flex: 1 1 calc(33% - 40px);
+    min-width: 250px;
+}
+
+.project h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.project img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+#interview {
+    margin: 25px auto;
+    padding: 30px;
+    text-align: left;
+    background-color: #333333;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+body.light-mode #interview {
+    background-color: #dddddd;
+    color: black;
+}
+
+#interview h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#contact {
+    margin: 25px auto;
+    padding: 30px;
+    text-align: left;
+    background-color: #333333;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+body.light-mode #contact {
+    background-color: #dddddd;
+    color: black;
+}
+
+#contact h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 35px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+body.light-mode footer {
+    background-color: #dddddd;
+    color: black;
+}
+
+#mode-toggle {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: gray;
+    color: white;
+    transition: 0.3s;
+}
+
+#mode-toggle:hover {
+    background-color: darkgray;
+}
+
+.cookie-popup {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 9999;
+}
+
+body.light-mode .cookie-popup {
+    background-color: rgba(200, 200, 200, 0.9);
+    color: black;
+}
+
+.cookie-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cookie-btn {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.cookie-btn:hover {
+    background-color: #45a049;
+}
+
+.cookie-btn:active {
+    background-color: #388e3c;
+}
+
+@media screen and (max-width: 768px) {
+    .project {
+        flex: 1 1 calc(50% - 40px);
+    }
+
+    #about_me h1 {
+        font-size: 36px;
+    }
+
+    #about-me p {
+        font-size: 18px;
+    }
+
+    #interview h2,
+    #contact h2 {
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .project {
+        flex: 1 1 100%;
+    }
+
+    header {
+        height: 4rem;
+    }
+
+    header > h2 {
+        font-size: 1.5rem;
+    }
+}
+
+.demo {
+    text-align: center;
+}
